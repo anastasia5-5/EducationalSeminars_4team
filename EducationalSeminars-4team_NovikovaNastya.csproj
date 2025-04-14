@@ -1,0 +1,247 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{6D244058-83CD-47EE-B007-A81BDACC7906}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>WindowsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>EducationalSeminars_4team_NovikovaNastya</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include=".git\COMMIT_EDITMSG" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-merge-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\push-to-checkout.sample" />
+    <None Include=".git\hooks\sendemail-validate.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\master" />
+    <None Include=".git\objects\1f\f0c423042b46cb1d617b81efb715defbe8054d" />
+    <None Include=".git\objects\26\4600d71aa7f5b4459d40b8f562ab9de3716eb8" />
+    <None Include=".git\objects\2b\63b88cb01a614b5669ad42ff05386c26e619df" />
+    <None Include=".git\objects\30\b2ae09dbbd7b6344624874ca1e77ab20a29d5d" />
+    <None Include=".git\objects\38\b2b230477b45843d2c6734d2cde05d34019e42" />
+    <None Include=".git\objects\39\645652af62950ebf3b28ec3a5400dcec30b1c4" />
+    <None Include=".git\objects\4c\f25bb10497af55637afaf742a0ace947ac0795" />
+    <None Include=".git\objects\5f\9662c079ded49d2f6656f6e1df31041e32673e" />
+    <None Include=".git\objects\65\bddbb56e17902619275ff4c641727f0c098a29" />
+    <None Include=".git\objects\67\86b056128234ec26b962cfccdc33a5e71626e6" />
+    <None Include=".git\objects\6a\e77d4578cc7f9b03026801f29540320ffd9b87" />
+    <None Include=".git\objects\6c\1b42e81e0f6e4f566df74c3203e864510bda49" />
+    <None Include=".git\objects\70\eebf761de43216e4a813629d5561dec4896924" />
+    <None Include=".git\objects\8b\904f8392db52f35047b74f5ae4486e6c7fd467" />
+    <None Include=".git\objects\94\91a2fda28342ab358eaf234e1afe0c07a53d62" />
+    <None Include=".git\objects\a4\a89f3f0a2c13a5ee2440ed74bc4ffc16984d9f" />
+    <None Include=".git\objects\a7\7d69c476a683c0bde2faf64e87f498f124d6f5" />
+    <None Include=".git\objects\a8\4525e78d0591d7f35b3e8b96b2bd2818780d42" />
+    <None Include=".git\objects\af\7dbebbacef595e3089c01c05671016c21a8304" />
+    <None Include=".git\objects\b8\51021b180e5438d4315919aee15420250fc543" />
+    <None Include=".git\objects\cb\09107e210c0863dd791d9372af5c4093da8a86" />
+    <None Include=".git\objects\cc\cd0c01266786b01e072b16752c3e4d83369a04" />
+    <None Include=".git\objects\d0\1ec06cf8cacad11487ab32555a4f115dca1f85" />
+    <None Include=".git\objects\e3\0d920513d6905364d9a0fb6659a2ba4969eec7" />
+    <None Include=".git\objects\f0\d3a70ceaa69fb70811f58254dc738e0f939eac" />
+    <None Include=".git\objects\f3\171113a1571d9c1779d329c5b0e0528ea32afb" />
+    <None Include=".git\objects\f9\70cecda8de42b90e2cc300d921af91ffa3f58a" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\master" />
+    <None Include=".vs\EducationalSeminars_4team\FileContentIndex\143c43d1-b519-4c03-b455-ee821b30508b.vsidx" />
+    <None Include=".vs\EducationalSeminars_4team\FileContentIndex\166e045e-be17-4e22-ad63-d445463fe288.vsidx" />
+    <None Include=".vs\EducationalSeminars_4team\FileContentIndex\b571b04e-b03f-4ff6-b1d5-e41a3c89d319.vsidx" />
+    <None Include=".vs\EducationalSeminars_4team\FileContentIndex\c8eccc16-33a1-4254-99ae-4348cde3388c.vsidx" />
+    <None Include=".vs\EducationalSeminars_4team\FileContentIndex\fd35acfb-8ef1-4ce7-a44d-9831556d0107.vsidx" />
+    <None Include=".vs\EducationalSeminars_4team\v17\.suo" />
+    <None Include=".vs\EducationalSeminars_4team\v17\DocumentLayout.backup.json" />
+    <None Include=".vs\EducationalSeminars_4team\v17\DocumentLayout.json" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\App.config" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\EducationalSeminars_4team_Novikova_Nastya.exe.config" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\EducationalSeminars_4team_Novikova_Nastya.csproj" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\Educatio.DF0C932E.Up2Date" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.csproj.AssemblyReference.cache" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.csproj.CoreCompileInputs.cache" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.csproj.GenerateResource.cache" />
+    <None Include="EducationalSeminars_4team_Novikova_Nastya\Properties\Settings.settings" />
+    <None Include="packages\EntityFramework.6.5.1\.signature.p7s" />
+    <None Include="packages\EntityFramework.6.5.1\buildTransitive\EntityFramework.props" />
+    <None Include="packages\EntityFramework.6.5.1\buildTransitive\EntityFramework.targets" />
+    <None Include="packages\EntityFramework.6.5.1\buildTransitive\net6.0\EntityFramework.props" />
+    <None Include="packages\EntityFramework.6.5.1\buildTransitive\net6.0\EntityFramework.targets" />
+    <None Include="packages\EntityFramework.6.5.1\build\EntityFramework.DefaultItems.props" />
+    <None Include="packages\EntityFramework.6.5.1\build\EntityFramework.props" />
+    <None Include="packages\EntityFramework.6.5.1\build\EntityFramework.targets" />
+    <None Include="packages\EntityFramework.6.5.1\build\net6.0\EntityFramework.props" />
+    <None Include="packages\EntityFramework.6.5.1\build\net6.0\EntityFramework.targets" />
+    <None Include="packages\EntityFramework.6.5.1\content\net40\App.config.install.xdt" />
+    <None Include="packages\EntityFramework.6.5.1\content\net40\App.config.transform" />
+    <None Include="packages\EntityFramework.6.5.1\content\net40\Web.config.install.xdt" />
+    <None Include="packages\EntityFramework.6.5.1\content\net40\Web.config.transform" />
+    <None Include="packages\EntityFramework.6.5.1\EntityFramework.6.5.1.nupkg" />
+    <None Include="packages\EntityFramework.6.5.1\README.md" />
+    <None Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.PS2.psd1" />
+    <None Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.PS2.psm1" />
+    <None Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.psd1" />
+    <None Include="packages\EntityFramework.6.5.1\tools\EntityFramework6.psm1" />
+    <None Include="packages\EntityFramework.6.5.1\tools\init.ps1" />
+    <None Include="packages\EntityFramework.6.5.1\tools\install.ps1" />
+    <None Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.runtimeconfig.json" />
+    <None Include="packages\Microsoft.SqlServer.Server.1.0.0\.signature.p7s" />
+    <None Include="packages\Microsoft.SqlServer.Server.1.0.0\Microsoft.SqlServer.Server.1.0.0.nupkg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\EducationalSeminars_4team_Novikova_Nastya.exe" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\EducationalSeminars_4team_Novikova_Nastya.pdb" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\EntityFramework.dll" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\EntityFramework.xml" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\Microsoft.SqlServer.Server.dll" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\Microsoft.SqlServer.Server.pdb" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\bin\Debug\Microsoft.SqlServer.Server.xml" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.csproj.FileListAbsolute.txt" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.exe" />
+    <Content Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\build\Microsoft.Data.Entity.Build.Tasks.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\Icon.png" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net40\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\net45\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\lib\netstandard2.1\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\about_EntityFramework6.help.txt" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-arm64\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-arm64\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net40\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-arm64\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-arm64\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net45\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.dll" />
+    <Content Include="packages\EntityFramework.6.5.1\tools\net6.0\any\ef6.pdb" />
+    <Content Include="packages\Microsoft.SqlServer.Server.1.0.0\dotnet.png" />
+    <Content Include="packages\Microsoft.SqlServer.Server.1.0.0\lib\net46\Microsoft.SqlServer.Server.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Server.1.0.0\lib\net46\Microsoft.SqlServer.Server.pdb" />
+    <Content Include="packages\Microsoft.SqlServer.Server.1.0.0\lib\net46\Microsoft.SqlServer.Server.xml" />
+    <Content Include="packages\Microsoft.SqlServer.Server.1.0.0\lib\netstandard2.0\Microsoft.SqlServer.Server.dll" />
+    <Content Include="packages\Microsoft.SqlServer.Server.1.0.0\lib\netstandard2.0\Microsoft.SqlServer.Server.pdb" />
+    <Content Include="packages\Microsoft.SqlServer.Server.1.0.0\lib\netstandard2.0\Microsoft.SqlServer.Server.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\AddEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\AddEvent.Designer.cs">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\Authorization.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\ClassesForm2\Event.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\ClassesForm2\EventDatabase.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\EventTable.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\EventTable.Designer.cs">
+      <DependentUpon>EventTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\Program.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\Properties\AssemblyInfo.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\Properties\Resources.Designer.cs" />
+    <Compile Include="EducationalSeminars_4team_Novikova_Nastya\Properties\Settings.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\AddEvent.resx">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\EventTable.resx">
+      <DependentUpon>EventTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.AddEvent.resources" />
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.Authorization.resources" />
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.EventTable.resources" />
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\EducationalSeminars_4team_Novikova_Nastya.Properties.Resources.resources" />
+    <EmbeddedResource Include="EducationalSeminars_4team_Novikova_Nastya\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include=".vs\EducationalSeminars-4team_NovikovaNastya\v17\" />
+    <Folder Include="EducationalSeminars_4team_Novikova_Nastya\bin\Release\" />
+    <Folder Include="EducationalSeminars_4team_Novikova_Nastya\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

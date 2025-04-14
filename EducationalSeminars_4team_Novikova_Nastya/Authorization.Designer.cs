@@ -1,6 +1,6 @@
 ﻿namespace EducationalSeminars_4team_Novikova_Nastya
 {
-    partial class Form1
+    partial class Authorization
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authorization));
             this.btnLogInAsACustomer = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxLogin = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBoxPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -92,17 +92,18 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // textBox1
+            // txtBoxLogin
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(224)))), ((int)(((byte)(254)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(430, 159);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 47);
-            this.textBox1.TabIndex = 4;
+            this.txtBoxLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(224)))), ((int)(((byte)(254)))));
+            this.txtBoxLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxLogin.Location = new System.Drawing.Point(442, 159);
+            this.txtBoxLogin.Multiline = true;
+            this.txtBoxLogin.Name = "txtBoxLogin";
+            this.txtBoxLogin.Size = new System.Drawing.Size(302, 47);
+            this.txtBoxLogin.TabIndex = 4;
+            this.txtBoxLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxLogin_KeyPress);
             // 
             // textBox2
             // 
@@ -110,9 +111,10 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox2.Location = new System.Drawing.Point(466, 116);
+            this.textBox2.Location = new System.Drawing.Point(451, 108);
+            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(244, 37);
+            this.textBox2.Size = new System.Drawing.Size(364, 45);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "Введите логин:";
             // 
@@ -122,38 +124,42 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox3.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox3.Location = new System.Drawing.Point(466, 263);
+            this.textBox3.Location = new System.Drawing.Point(451, 249);
+            this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(256, 37);
+            this.textBox3.Size = new System.Drawing.Size(349, 51);
             this.textBox3.TabIndex = 6;
             this.textBox3.Text = "Введите пароль:";
             // 
-            // textBox4
+            // txtBoxPassword
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(221)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(430, 323);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(280, 44);
-            this.textBox4.TabIndex = 7;
+            this.txtBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(221)))));
+            this.txtBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxPassword.Location = new System.Drawing.Point(442, 295);
+            this.txtBoxPassword.Multiline = true;
+            this.txtBoxPassword.Name = "txtBoxPassword";
+            this.txtBoxPassword.Size = new System.Drawing.Size(302, 48);
+            this.txtBoxPassword.TabIndex = 7;
+            this.txtBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPassword_KeyPress);
             // 
-            // Form1
+            // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.ClientSize = new System.Drawing.Size(873, 450);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxLogin);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btnLogInAsACustomer);
-            this.Name = "Form1";
-            this.Text = "EducationalSeminars";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "Authorization";
+            this.Text = "Authorization";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -167,10 +173,10 @@
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox txtBoxLogin;
+        public System.Windows.Forms.TextBox txtBoxPassword;
     }
 }
 
