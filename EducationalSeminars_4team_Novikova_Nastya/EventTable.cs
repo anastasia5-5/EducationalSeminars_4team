@@ -56,7 +56,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count <= 1) // 1 - потому что есть пустая новая строка
+            if (dataGridView1.Rows.Count <= 1) 
             {
                 MessageBox.Show("Нет данных для фильтрации");
                 return;
@@ -122,6 +122,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         {
             AddEvent addEvent = new AddEvent();
             addEvent.Show();
+            db.Update(dataGridView1);
         }
 
 

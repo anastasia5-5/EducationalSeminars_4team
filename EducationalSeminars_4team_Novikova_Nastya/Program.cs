@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data.Entity;
-using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
@@ -16,8 +14,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //SQLiteConnection.CreateFile("EventDatabase");
-            
+           
+            using(EventDatabase db = new EventDatabase())
+            {
+                db.Database.EnsureCreated();
+            }
               
             Application.Run(new Authorization());
         }
