@@ -14,7 +14,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         }
 
         /// <summary>
-        /// Метод для кнопки входа 
+        /// Обработчик нажатия кнопки входа
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -34,7 +34,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         }
 
         /// <summary>
-        /// Метод для кнопки входа как гость
+        /// Обработчик нажатия кнопки вход как гость
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

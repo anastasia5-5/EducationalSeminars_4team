@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
@@ -27,7 +25,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         }
 
         /// <summary>
-        /// Метод для кнопки сохранить событие
+        /// Обработчик нажатия кнопки сохранить событие
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

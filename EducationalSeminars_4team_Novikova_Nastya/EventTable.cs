@@ -34,6 +34,9 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             db.Database.EnsureCreated();
             LoadEvents();
         }
+        /// <summary>
+        /// Метод для настройки формы в зависимости от пользователя
+        /// </summary>
         private void SetUpForm()
         {
             if (isCustomer)
@@ -44,6 +47,10 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 btnSaveEvent.Enabled = false;
             }
         }
+
+        /// <summary>
+        /// Загрузка событий из БД
+        /// </summary>
         public void LoadEvents()
         {
             using (var db = new EventDatabase())
@@ -53,7 +60,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         }
 
         
-
+        /// <summary>
+        /// Обработчик нажатия кнопки фильтр
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFilter_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count <= 1) 
@@ -117,15 +128,23 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             }
         }
 
-        
+        /// <summary>
+        /// Обработчик кнопки добавления события
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddEvent_Click(object sender, EventArgs e)
         {
             AddEvent addEvent = new AddEvent();
             addEvent.Show();
-            db.Update(dataGridView1);
+            //db.Update(dataGridView1);
         }
 
-
+        /// <summary>
+        /// Обработчик кнопки удаления события
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count > 0)
@@ -153,6 +172,12 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 }
             }
         }
+
+        /// <summary>
+        /// Обработчик кнопки редактирования события
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count > 0)
@@ -184,6 +209,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             }
         }
 
+        /// <summary>
+        /// Обработчик кнопки сохранения изменений
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -221,6 +251,12 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             }
 
         }
+
+        /// <summary>
+        /// Метод для сохранения таблицы в БД
+        /// </summary>
+        /// <param name="eventToSave"></param>
+        /// <exception cref="Exception"></exception>
         public void SaveEvent(Event eventToSave)
         {
             using (var db = new EventDatabase())

@@ -182,10 +182,10 @@
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.ItemHeight = 43;
             this.comboBoxCategory.Location = new System.Drawing.Point(290, 225);
-            this.comboBoxCategory.MaximumSize = new System.Drawing.Size(176, 0);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(176, 49);
             this.comboBoxCategory.TabIndex = 25;
+            this.comboBoxCategory.Items.AddRange(new string[] { "Творчество", "Гуманитарные науки", "Технические науки", "Естественные науки" });
             // 
             // labelCategory
             // 
@@ -207,7 +207,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(290, 87);
             this.dateTimePicker1.MaximumSize = new System.Drawing.Size(176, 49);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(176, 49);
+            this.dateTimePicker1.Size = new System.Drawing.Size(176, 29);
             this.dateTimePicker1.TabIndex = 20;
             // 
             // AddEvent
