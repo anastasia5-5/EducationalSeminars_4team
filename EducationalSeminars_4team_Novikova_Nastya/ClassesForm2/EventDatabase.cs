@@ -9,7 +9,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=\"C:\\Users\\anastasianovikova\\source\\repos\\EducationalSeminars_4team\\bin\\Debug\\EventDatabase.sqlite\"");
+            optionsBuilder.UseSqlite("Data Source=\"C:\\Users\\anastasianovikova\\source\\repos\\EducationalSeminars_4team\\EducationalSeminars_4team_Novikova_Nastya\\bin\\Debug\\EventDatabase.sqlite\"");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
