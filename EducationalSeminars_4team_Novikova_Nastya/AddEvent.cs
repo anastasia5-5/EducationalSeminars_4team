@@ -68,5 +68,6 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             }
         }
         //надо удалить эту строчку
+        //эту тоже
     }
 }
