@@ -67,6 +67,6 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                  MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
             }
         }
-        
+        //надо удалить эту строчку
     }
 }
