@@ -43,11 +43,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtBoxWriteTime.Text) || !IsValidTimeFormat(txtBoxWriteTime.Text))
-            {
-                MessageBox.Show("Введите время в формате HH:MM (например, 09:00 или 23:59)");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(txtBoxWriteTime.Text) || !IsValidTimeFormat(txtBoxWriteTime.Text))
+            //{
+            //    MessageBox.Show("Введите время в формате HH:MM (например, 09:00 или 23:59)");
+            //    return;
+            //}
            
             try
             {
