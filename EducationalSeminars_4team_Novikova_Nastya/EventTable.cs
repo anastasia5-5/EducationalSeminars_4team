@@ -9,15 +9,17 @@ namespace EducationalSeminars_4team_Novikova_Nastya
     {
 
         private readonly bool isCustomer;
-        private readonly EventDatabase db;
-        
+        private  EventDatabase db;
+       // public Guid ID { get; }
         public EventTable(bool isCustomer)
         {
             InitializeComponent();
             this.isCustomer = isCustomer;
             db = new EventDatabase();
+            //ID = Guid.NewGuid();
             InitializeDatabase();
             SetUpForm();
+
             var categories = new List<string>
             {
                 "Творчество",
@@ -55,7 +57,10 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         {
             using (var db = new EventDatabase())
             {
-                dataGridView1.DataSource = db.Events.ToList();
+                if(db.Database.CanConnect())
+                {
+                    dataGridView1.DataSource = db.Events.ToList();
+                }
             }
         }
 
@@ -73,9 +78,9 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 return;
             }
 
-            string selectedCategory = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : null;
-            DateTime selectedDate = dateTimePicker1.Value.Date;
-            dataGridView1.SuspendLayout();
+            var selectedCategory = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : null;
+            var selectedDate = dateTimePicker1.Value.Date;
+            
 
             try
             {
@@ -84,7 +89,10 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 {
                     DataGridViewRow row = dataGridView1.Rows[i];
 
-                    if (row.IsNewRow) continue;
+                    if (row.IsNewRow)
+                    { 
+                        continue; 
+                    }
 
                     object categoryValueObj = row.Cells["Category"].Value;
                     object dateValueObj = row.Cells["Date"].Value;
@@ -118,13 +126,9 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                     row.Visible = categoryMatches && dateMatches;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show("Ошибка при фильтрации: " + ex.Message);
-            }
-            finally
-            {
-                dataGridView1.ResumeLayout();
+                MessageBox.Show("Ошибка при фильтрации");
             }
         }
 
@@ -136,8 +140,24 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         private void btnAddEvent_Click(object sender, EventArgs e)
         {
             AddEvent addEvent = new AddEvent();
+            //Guid Event,ID = Guid.NewGuid();
+            addEvent.EventSaved += AddEvent_EventSaved;
             addEvent.Show();
-            //db.Update(dataGridView1);
+        }
+        private void AddEvent_EventSaved(Event newEvent)
+        {
+           
+            var currentDataSource = dataGridView1.DataSource as List<Event>;
+            if (currentDataSource != null)
+            {
+                currentDataSource.Add(newEvent);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = currentDataSource;
+            }
+            else
+            {
+                LoadEvents(); 
+            }
         }
 
         /// <summary>
@@ -150,8 +170,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             if (dataGridView1.SelectedCells.Count > 0)
             {
                 int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
-                if (dataGridView1.Rows[rowIndex].IsNewRow) return;
-                var selectedId = (int)dataGridView1.Rows[rowIndex].Cells["ID"].Value;
+                if (dataGridView1.Rows[rowIndex].IsNewRow)
+                {
+                    return;
+                }
+                var selectedId = (Guid)dataGridView1.Rows[rowIndex].Cells["ID"].Value;
 
                 if (MessageBox.Show("Удалить выбранное событие?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -183,9 +206,12 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             if (dataGridView1.SelectedCells.Count > 0)
             {
                 int rowIndex = dataGridView1.SelectedCells[0].RowIndex;
-                if (dataGridView1.Rows[rowIndex].IsNewRow) return;
+                if (dataGridView1.Rows[rowIndex].IsNewRow)
+                {
+                    return;
+                }
 
-                var selectedId = (int)dataGridView1.Rows[rowIndex].Cells["ID"].Value;
+                var selectedId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["ID"].Value);
 
                 using (var db = new EventDatabase())
                 {
@@ -247,7 +273,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             }
             else
             {
-                MessageBox.Show("Пожалуйста, выберите событие для сохранения.");
+                MessageBox.Show("Выберите событие для сохранения.");
             }
 
         }

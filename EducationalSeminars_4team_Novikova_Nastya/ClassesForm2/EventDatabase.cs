@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.IO;
 
 
 namespace EducationalSeminars_4team_Novikova_Nastya
@@ -9,14 +11,16 @@ namespace EducationalSeminars_4team_Novikova_Nastya
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=\"C:\\Users\\anastasianovikova\\source\\repos\\EducationalSeminars_4team\\EducationalSeminars_4team_Novikova_Nastya\\bin\\Debug\\EventDatabase.sqlite\"");
-        }
+            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EventDatabase.sqlite");
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
+        }   
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Event>()
                 .ToTable("Events")
                 .HasKey(e => e.ID);
+               
 
             modelBuilder.Entity<Event>()
                 .Property(e => e.Title)

@@ -54,11 +54,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         {
             if (txtBoxLogin == null)
             {
-                MessageBox.Show("Пожалуйста ,введите логин");
+                MessageBox.Show("Введите логин");
             }
             if (txtBoxPassword == null) 
             {
-                MessageBox.Show("Пожалуйста ,введите пароль");
+                MessageBox.Show("Введите пароль");
             }
         }
 

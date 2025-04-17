@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
     public partial class AddEvent : Form
     {
-       
+        public event Action<Event> EventSaved;
         public AddEvent()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void btnSaveEvent_Click(object sender, EventArgs e)
         {
-            if (DateTime.TryParse(dateTimePicker1.Text, out DateTime eventDate))
+            if (!DateTime.TryParse(dateTimePicker1.Text, out var eventDate))
             {
                 MessageBox.Show("Некорректная дата");
             }
@@ -42,10 +43,17 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(txtBoxWriteTime.Text) || !IsValidTimeFormat(txtBoxWriteTime.Text))
+            {
+                MessageBox.Show("Введите время в формате HH:MM (например, 09:00 или 23:59)");
+                return;
+            }
+           
             try
             {
                 var newEvent = new Event
                 {
+                    
                     Title = txtBoxWriteTitle.Text,
                     Date = eventDate,
                     Time = txtBoxWriteTime.Text,
@@ -55,20 +63,19 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 };
 
                 using (var db = new EventDatabase())
-                {
+                {  
                     db.Events.Add(newEvent);
                     db.SaveChanges();
+                    EventSaved?.Invoke(newEvent);
                 }
                 MessageBox.Show("Событие успешно сохранено!");
                 this.Close();
             }
-            catch (Exception ex)
+            catch 
             {
-                 MessageBox.Show($"Ошибка при сохранении: {ex.Message}");
+                 MessageBox.Show($"Ошибка при сохранении");
             }
         }
-        //надо удалить эту строчку
-        //эту тоже
-        //////
+        
     }
 }

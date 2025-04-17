@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
     public class Event
     {
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string Title { get; set; }
         public DateTime Date { get; set; }
