@@ -5,8 +5,14 @@ using System.IO;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
+    /// <summary>
+    /// Класс подключения к БД
+    /// </summary>
     public class EventDatabase : DbContext
     {
+        /// <summary>
+        /// Таблица для хранения событий
+        /// </summary>
         public DbSet<Event> Events { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

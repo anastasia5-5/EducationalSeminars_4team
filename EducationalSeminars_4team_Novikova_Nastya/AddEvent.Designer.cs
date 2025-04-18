@@ -231,7 +231,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddEvent";
             this.Text = "AddEvent";
             this.ResumeLayout(false);

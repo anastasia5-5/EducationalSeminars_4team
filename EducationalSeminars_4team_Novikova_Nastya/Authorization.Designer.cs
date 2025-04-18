@@ -163,7 +163,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btnLogInAsACustomer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Authorization";
             this.Text = "Authorization";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -8,8 +8,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
+    /// <summary>
+    /// Класс формы добавления события
+    /// </summary>
     public partial class AddEvent : Form
     {
+        /// <summary>
+        /// Событие, возникающее при успешном сохранении нового события
+        /// </summary>
         public event Action<Event> EventSaved;
         public AddEvent()
         {

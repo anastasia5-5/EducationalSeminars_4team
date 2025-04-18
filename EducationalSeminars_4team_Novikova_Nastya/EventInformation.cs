@@ -13,6 +13,9 @@ using static Microsoft.IO.RecyclableMemoryStreamManager;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
+    /// <summary>
+    /// Класс для формы с деталями события
+    /// </summary>
     public partial class EventInformation : Form
     {
         public EventInformation()
@@ -21,6 +24,10 @@ namespace EducationalSeminars_4team_Novikova_Nastya
 
         }
 
+        /// <summary>
+        /// Метод для показа информации в таблице
+        /// </summary>
+        /// <param name="EventId"></param>
         public void DisplayEventDetails(int EventId)
         {
             using (var db = new EventDatabase())
@@ -29,7 +36,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                                    .FirstOrDefault(e => e.EventId == EventId);
                 if (eventDetails != null)
                 {
-                    DataTable table = new DataTable();
+                    var table = new DataTable();
 
                     table.Columns.Add("название", typeof(string));
                     table.Columns.Add("дата", typeof(string));
@@ -38,7 +45,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                     table.Columns.Add("описание", typeof(string));
                     table.Columns.Add("участники", typeof(string));
 
-                    DataRow row = table.NewRow();
+                    var row = table.NewRow();
                     row["название"] = eventDetails.Title;
                     row["дата"] = eventDetails.Date.ToShortDateString();
                     row["время"] = eventDetails.Time;

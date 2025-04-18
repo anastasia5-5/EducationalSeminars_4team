@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
+    /// <summary>
+    /// Класс для формы авторизации
+    /// </summary>
     public partial class Authorization : Form
     {
         private const string OrganizerPassword = "administrator555";
@@ -21,30 +24,27 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            bool isLoginCorrect = (txtBoxLogin.Text == OrganizerLogin);
-            bool isPasswordCorrect = (txtBoxPassword.Text == OrganizerPassword);
+            var isLoginCorrect = (txtBoxLogin.Text == OrganizerLogin);
+            var isPasswordCorrect = (txtBoxPassword.Text == OrganizerPassword);
 
             if (txtBoxPassword.Text == OrganizerPassword && txtBoxLogin.Text == OrganizerLogin)
             {
-                EventTable eventTable = new EventTable(isCustomer: false);
+                var eventTable = new EventTable(isCustomer: false);
                 eventTable.Show();
             }
             else 
             {
                 if (!isLoginCorrect && !isPasswordCorrect)
                 {
-                    MessageBox.Show("Неверный логин и пароль", "Ошибка",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Неверный логин и пароль", "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (!isLoginCorrect)
                 {
-                    MessageBox.Show("Неверный логин", "Ошибка",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Неверный логин", "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Неверный пароль", "Ошибка",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Неверный пароль", "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtBoxPassword.Focus();
                 }
             }
@@ -59,7 +59,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         private void btnLogInAsACustomer_Click(object sender, EventArgs e)
         {
             FullUp();
-            EventTable eventTable = new EventTable(isCustomer: true);
+            var eventTable = new EventTable(isCustomer: true);
             eventTable.Show();
             this.Hide();
         }
