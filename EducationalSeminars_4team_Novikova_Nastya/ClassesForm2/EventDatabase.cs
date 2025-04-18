@@ -8,7 +8,6 @@ namespace EducationalSeminars_4team_Novikova_Nastya
     public class EventDatabase : DbContext
     {
         public DbSet<Event> Events { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EventDatabase.sqlite");
@@ -19,12 +18,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         {
             modelBuilder.Entity<Event>()
                 .ToTable("Events")
-                .HasKey(e => e.ID);
-               
+                .HasKey(e => e.EventId);
 
-            modelBuilder.Entity<Event>()
-                .Property(e => e.Title)
-                .IsRequired();
+            modelBuilder.Entity<Event>();
+                
         }
+
     }
 }

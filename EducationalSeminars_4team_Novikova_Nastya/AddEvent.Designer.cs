@@ -1,4 +1,6 @@
-﻿namespace EducationalSeminars_4team_Novikova_Nastya
+﻿using System.Windows.Forms;
+
+namespace EducationalSeminars_4team_Novikova_Nastya
 {
     partial class AddEvent
     {
@@ -39,10 +41,10 @@
             this.txtBoxWriteTitle = new System.Windows.Forms.TextBox();
             this.txtBoxWriteDiscription = new System.Windows.Forms.TextBox();
             this.txtBoxWriteParticipants = new System.Windows.Forms.TextBox();
-            this.txtBoxWriteTime = new System.Windows.Forms.TextBox();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.labelCategory = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBoxWriteTime = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -50,7 +52,7 @@
             this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
             this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblTitle.Location = new System.Drawing.Point(53, 20);
+            this.lblTitle.Location = new System.Drawing.Point(53, 23);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(176, 49);
             this.lblTitle.TabIndex = 0;
@@ -163,29 +165,17 @@
             this.txtBoxWriteParticipants.TabIndex = 21;
             this.txtBoxWriteParticipants.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtBoxWriteTime
-            // 
-            this.txtBoxWriteTime.BackColor = System.Drawing.Color.LavenderBlush;
-            this.txtBoxWriteTime.Location = new System.Drawing.Point(290, 155);
-            this.txtBoxWriteTime.Multiline = true;
-            this.txtBoxWriteTime.Name = "txtBoxWriteTime";
-            this.txtBoxWriteTime.Size = new System.Drawing.Size(176, 49);
-            this.txtBoxWriteTime.TabIndex = 24;
-            this.txtBoxWriteTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // comboBoxCategory
             // 
-            this.comboBoxCategory.BackColor = System.Drawing.Color.LavenderBlush;
-            this.comboBoxCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxCategory.BackColor = System.Drawing.Color.White;
             this.comboBoxCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.ItemHeight = 43;
+            this.comboBoxCategory.ItemHeight = 25;
             this.comboBoxCategory.Location = new System.Drawing.Point(290, 225);
             this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(176, 49);
+            this.comboBoxCategory.Size = new System.Drawing.Size(176, 33);
             this.comboBoxCategory.TabIndex = 25;
-            this.comboBoxCategory.Items.AddRange(new string[] { "Творчество", "Гуманитарные науки", "Технические науки", "Естественные науки" });
             // 
             // labelCategory
             // 
@@ -202,13 +192,23 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.LavenderBlush;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(290, 87);
-            this.dateTimePicker1.MaximumSize = new System.Drawing.Size(176, 49);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 49);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(176, 29);
-            this.dateTimePicker1.TabIndex = 20;
+            this.dateTimePicker1.Size = new System.Drawing.Size(176, 49);
+            this.dateTimePicker1.TabIndex = 28;
+            // 
+            // textBoxWriteTime
+            // 
+            this.textBoxWriteTime.BackColor = System.Drawing.Color.LavenderBlush;
+            this.textBoxWriteTime.Location = new System.Drawing.Point(290, 155);
+            this.textBoxWriteTime.Multiline = true;
+            this.textBoxWriteTime.Name = "textBoxWriteTime";
+            this.textBoxWriteTime.Size = new System.Drawing.Size(176, 49);
+            this.textBoxWriteTime.TabIndex = 29;
+            this.textBoxWriteTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // AddEvent
             // 
@@ -216,10 +216,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxWriteTime);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelCategory);
             this.Controls.Add(this.comboBoxCategory);
-            this.Controls.Add(this.txtBoxWriteTime);
             this.Controls.Add(this.txtBoxWriteParticipants);
             this.Controls.Add(this.txtBoxWriteDiscription);
             this.Controls.Add(this.txtBoxWriteTitle);
@@ -251,9 +251,9 @@
         public System.Windows.Forms.TextBox txtBoxWriteTitle;
         public System.Windows.Forms.TextBox txtBoxWriteDiscription;
         public System.Windows.Forms.TextBox txtBoxWriteParticipants;
-        public System.Windows.Forms.TextBox txtBoxWriteTime;
         private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Label labelCategory;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker1;
+        public TextBox textBoxWriteTime;
     }
 }

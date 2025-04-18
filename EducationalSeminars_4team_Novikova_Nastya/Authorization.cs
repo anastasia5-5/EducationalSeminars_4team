@@ -7,6 +7,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
     public partial class Authorization : Form
     {
         private const string OrganizerPassword = "administrator555";
+        private const string OrganizerLogin = "nastya";
         public Authorization()
         {
             InitializeComponent();
@@ -20,17 +21,34 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            if(txtBoxPassword.Text == OrganizerPassword)
+            bool isLoginCorrect = (txtBoxLogin.Text == OrganizerLogin);
+            bool isPasswordCorrect = (txtBoxPassword.Text == OrganizerPassword);
+
+            if (txtBoxPassword.Text == OrganizerPassword && txtBoxLogin.Text == OrganizerLogin)
             {
                 EventTable eventTable = new EventTable(isCustomer: false);
                 eventTable.Show();
             }
-            else
+            else 
             {
-                MessageBox.Show("Неверный пароль администратора", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtBoxPassword.Focus();
+                if (!isLoginCorrect && !isPasswordCorrect)
+                {
+                    MessageBox.Show("Неверный логин и пароль", "Ошибка",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (!isLoginCorrect)
+                {
+                    MessageBox.Show("Неверный логин", "Ошибка",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Неверный пароль", "Ошибка",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtBoxPassword.Focus();
+                }
             }
-           
+            
         }
 
         /// <summary>
@@ -40,6 +58,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void btnLogInAsACustomer_Click(object sender, EventArgs e)
         {
+            FullUp();
             EventTable eventTable = new EventTable(isCustomer: true);
             eventTable.Show();
             this.Hide();
@@ -50,7 +69,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FullUp(object sender, EventArgs e)
+        private void FullUp()
         {
             if (txtBoxLogin == null)
             {
@@ -69,23 +88,11 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void txtBoxPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-                return;
-            }
-            if (!Regex.IsMatch(e.KeyChar.ToString(), @"^[a-zA-Z0-9]$"))
-            {
-                e.Handled = true;
-            }
+            FullUp();
+            KeyPress(sender,e);
         }
 
-        /// <summary>
-        /// Метод для ввода логина только английскими буквами и цифрами
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtBoxLogin_KeyPress(object sender, KeyPressEventArgs e)
+        private void KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsControl(e.KeyChar))
             {
@@ -96,6 +103,15 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             {
                 e.Handled = true;
             }
+        }
+        /// <summary>
+        /// Метод для ввода логина только английскими буквами и цифрами
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBoxLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            KeyPress(sender, e);
         }
     }
 }

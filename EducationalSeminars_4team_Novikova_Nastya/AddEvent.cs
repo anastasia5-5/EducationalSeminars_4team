@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
@@ -15,15 +19,17 @@ namespace EducationalSeminars_4team_Novikova_Nastya
          }
         private void SetupCategories()
         {
-            comboBoxCategory.Items.AddRange(new[]
+            var categories = new List<string>
             {
-            "Творчество",
-            "Гуманитарные науки",
-            "Естественные науки",
-            "Технические науки"
-            });
+                "Творчество",
+                "Гуманитарные науки",
+                "Естественные науки",
+                "Технические науки"
+            };
+            comboBoxCategory.DataSource = categories;
             comboBoxCategory.SelectedIndex = 0;
         }
+        
 
         /// <summary>
         /// Обработчик нажатия кнопки сохранить событие
@@ -43,20 +49,19 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 return;
             }
 
-            //if (string.IsNullOrWhiteSpace(txtBoxWriteTime.Text) || !IsValidTimeFormat(txtBoxWriteTime.Text))
-            //{
-            //    MessageBox.Show("Введите время в формате HH:MM (например, 09:00 или 23:59)");
-            //    return;
-            //}
-           
+            if (string.IsNullOrWhiteSpace(textBoxWriteTime.Text) || !IsValidTimeFormat(textBoxWriteTime.Text))
+            {
+                MessageBox.Show("Введите время в формате HH:MM (например, 09:00 )");
+                return;
+            }
+
             try
             {
                 var newEvent = new Event
                 {
-                    
                     Title = txtBoxWriteTitle.Text,
                     Date = eventDate,
-                    Time = txtBoxWriteTime.Text,
+                    Time = textBoxWriteTime.Text,
                     Category = comboBoxCategory.Text,
                     Description = txtBoxWriteDiscription.Text,
                     Participants = txtBoxWriteParticipants.Text,
@@ -76,6 +81,10 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                  MessageBox.Show($"Ошибка при сохранении");
             }
         }
-        
+        private bool IsValidTimeFormat(string time)
+        {
+            return Regex.IsMatch(time, @"^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
+        }
+
     }
 }

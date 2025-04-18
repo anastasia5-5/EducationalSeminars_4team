@@ -30,8 +30,8 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -44,8 +44,8 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Discription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Participants = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -72,32 +72,32 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Title,
             this.Date,
             this.Time,
             this.Category,
-            this.Discription,
+            this.Description,
             this.Participants});
             this.dataGridView1.Location = new System.Drawing.Point(34, 135);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -107,12 +107,13 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "дата";
+            this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(193, 83);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 35);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(105, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(154, 35);
             this.dateTimePicker1.TabIndex = 2;
             // 
             // btnFilter
@@ -123,7 +124,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnFilter.ForeColor = System.Drawing.Color.LemonChiffon;
-            this.btnFilter.Location = new System.Drawing.Point(323, 83);
+            this.btnFilter.Location = new System.Drawing.Point(353, 83);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(126, 35);
             this.btnFilter.TabIndex = 3;
@@ -189,13 +190,14 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             this.btnSaveEvent.Name = "btnSaveEvent";
             this.btnSaveEvent.Size = new System.Drawing.Size(152, 64);
             this.btnSaveEvent.TabIndex = 7;
-            this.btnSaveEvent.Text = "сохранить";
+            this.btnSaveEvent.Text = "сохранить \r\nотчёт";
             this.btnSaveEvent.UseVisualStyleBackColor = false;
             this.btnSaveEvent.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Title
             // 
             this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Title.DataPropertyName = "Title";
             this.Title.HeaderText = "название";
             this.Title.MinimumWidth = 10;
             this.Title.Name = "Title";
@@ -204,6 +206,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             // Date
             // 
             this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Date.DataPropertyName = "Date";
             this.Date.HeaderText = "дата";
             this.Date.MinimumWidth = 10;
             this.Date.Name = "Date";
@@ -212,6 +215,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             // Time
             // 
             this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Time.DataPropertyName = "Time";
             this.Time.HeaderText = "время";
             this.Time.MinimumWidth = 10;
             this.Time.Name = "Time";
@@ -220,22 +224,26 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             // Category
             // 
             this.Category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Category.DataPropertyName = "Category";
             this.Category.HeaderText = "категория";
             this.Category.MinimumWidth = 10;
             this.Category.Name = "Category";
+            this.Category.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Category.Width = 130;
             // 
-            // Discription
+            // Description
             // 
-            this.Discription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Discription.HeaderText = "описание";
-            this.Discription.MinimumWidth = 10;
-            this.Discription.Name = "Discription";
-            this.Discription.Width = 140;
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "описание";
+            this.Description.MinimumWidth = 10;
+            this.Description.Name = "Description";
+            this.Description.Width = 140;
             // 
             // Participants
             // 
             this.Participants.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Participants.DataPropertyName = "Participants";
             this.Participants.HeaderText = "участники";
             this.Participants.MinimumWidth = 10;
             this.Participants.Name = "Participants";
@@ -266,7 +274,6 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         #endregion
 
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnFilter;
         public System.Windows.Forms.Button btnAddEvent;
@@ -277,8 +284,9 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discription;
+        private System.Windows.Forms.DataGridViewButtonColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Participants;
+        public System.Windows.Forms.ComboBox comboBox1;
     }
 }

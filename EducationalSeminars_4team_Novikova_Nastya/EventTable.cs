@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using static Microsoft.IO.RecyclableMemoryStreamManager;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
@@ -9,17 +10,20 @@ namespace EducationalSeminars_4team_Novikova_Nastya
     {
 
         private readonly bool isCustomer;
-        private  EventDatabase db;
-       // public Guid ID { get; }
+        private EventDatabase db;
+
         public EventTable(bool isCustomer)
         {
             InitializeComponent();
             this.isCustomer = isCustomer;
             db = new EventDatabase();
-            //ID = Guid.NewGuid();
             InitializeDatabase();
             SetUpForm();
-
+            Categories();
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+        }
+        public void Categories()
+        {
             var categories = new List<string>
             {
                 "Творчество",
@@ -30,7 +34,6 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             comboBox1.DataSource = categories;
             comboBox1.SelectedIndex = 0;
         }
-
         private void InitializeDatabase()
         {
             db.Database.EnsureCreated();
@@ -57,14 +60,14 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         {
             using (var db = new EventDatabase())
             {
-                if(db.Database.CanConnect())
+                if (db.Database.CanConnect())
                 {
                     dataGridView1.DataSource = db.Events.ToList();
                 }
             }
         }
 
-        
+
         /// <summary>
         /// Обработчик нажатия кнопки фильтр
         /// </summary>
@@ -72,7 +75,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count <= 1) 
+            if (dataGridView1.Rows.Count <= 1)
             {
                 MessageBox.Show("Нет данных для фильтрации");
                 return;
@@ -80,7 +83,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
 
             var selectedCategory = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : null;
             var selectedDate = dateTimePicker1.Value.Date;
-            
+
 
             try
             {
@@ -90,8 +93,8 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                     DataGridViewRow row = dataGridView1.Rows[i];
 
                     if (row.IsNewRow)
-                    { 
-                        continue; 
+                    {
+                        continue;
                     }
 
                     object categoryValueObj = row.Cells["Category"].Value;
@@ -126,7 +129,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                     row.Visible = categoryMatches && dateMatches;
                 }
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Ошибка при фильтрации");
             }
@@ -140,13 +143,12 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         private void btnAddEvent_Click(object sender, EventArgs e)
         {
             AddEvent addEvent = new AddEvent();
-            //Guid Event,ID = Guid.NewGuid();
             addEvent.EventSaved += AddEvent_EventSaved;
             addEvent.Show();
         }
         private void AddEvent_EventSaved(Event newEvent)
         {
-           
+
             var currentDataSource = dataGridView1.DataSource as List<Event>;
             if (currentDataSource != null)
             {
@@ -156,7 +158,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             }
             else
             {
-                LoadEvents(); 
+                LoadEvents();
             }
         }
 
@@ -174,7 +176,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                 {
                     return;
                 }
-                var selectedId = (Guid)dataGridView1.Rows[rowIndex].Cells["ID"].Value;
+                var selectedId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["EventId"].Value);
 
                 if (MessageBox.Show("Удалить выбранное событие?", "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -211,18 +213,18 @@ namespace EducationalSeminars_4team_Novikova_Nastya
                     return;
                 }
 
-                var selectedId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["ID"].Value);
+                var selectedId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["EventId"].Value);
 
                 using (var db = new EventDatabase())
                 {
                     var eventToEdit = db.Events.Find(selectedId);
                     if (eventToEdit != null)
                     {
-                       
+
                         AddEvent editForm = new AddEvent();
                         if (editForm.ShowDialog() == DialogResult.OK)
                         {
-                            
+
                             db.SaveChanges();
                             LoadEvents();
                         }
@@ -242,66 +244,30 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                var selectedRow = dataGridView1.SelectedRows[0];
 
-                var eventToSave = new Event
-                {
-                    ID = Convert.ToInt32(selectedRow.Cells["ID"].Value),
-                    Title = selectedRow.Cells["Title"].Value.ToString(),
-                    Date = Convert.ToDateTime(selectedRow.Cells["Date"].Value)
-                };
-
-                
-                if (string.IsNullOrWhiteSpace(eventToSave.Title))
-                {
-                    MessageBox.Show("Название события не может быть пустым.");
-                    return;
-                }
-
-                try
-                {
-                    SaveEvent(eventToSave);
-                    LoadEvents(); 
-                    MessageBox.Show("Событие успешно сохранено.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка при сохранении события: {ex.Message}");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Выберите событие для сохранения.");
-            }
 
         }
 
-        /// <summary>
-        /// Метод для сохранения таблицы в БД
-        /// </summary>
-        /// <param name="eventToSave"></param>
-        /// <exception cref="Exception"></exception>
-        public void SaveEvent(Event eventToSave)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            using (var db = new EventDatabase())
+            if (e.RowIndex < 0 || dataGridView1.Rows[e.RowIndex].IsNewRow)
             {
-                var existingEvent = db.Events.Find(eventToSave.ID);
-                if (existingEvent != null)
-                {
-                    existingEvent.Title = eventToSave.Title;
-                    existingEvent.Date = eventToSave.Date;
+                return;
+            }
+            try
+            {
+                var selectedId = (int)dataGridView1.Rows[e.RowIndex].Cells["EventId"].Value;
 
-                    db.SaveChanges();
-                }
-                else
+                using (var detailForm = new EventInformation())
                 {
-                    throw new Exception("Событие не найдено.");
+                    detailForm.DisplayEventDetails(selectedId);
+                    detailForm.ShowDialog();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при открытии деталей события: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-
     }
 }
