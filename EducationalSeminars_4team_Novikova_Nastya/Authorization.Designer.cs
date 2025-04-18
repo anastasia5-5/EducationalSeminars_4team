@@ -50,7 +50,7 @@
             this.btnLogInAsACustomer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLogInAsACustomer.Location = new System.Drawing.Point(0, 0);
             this.btnLogInAsACustomer.Name = "btnLogInAsACustomer";
-            this.btnLogInAsACustomer.Size = new System.Drawing.Size(1405, 63);
+            this.btnLogInAsACustomer.Size = new System.Drawing.Size(985, 63);
             this.btnLogInAsACustomer.TabIndex = 0;
             this.btnLogInAsACustomer.Text = "Войти как Гость";
             this.btnLogInAsACustomer.UseVisualStyleBackColor = false;
@@ -65,7 +65,7 @@
             this.btnEnter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEnter.Location = new System.Drawing.Point(0, 480);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(1405, 59);
+            this.btnEnter.Size = new System.Drawing.Size(985, 59);
             this.btnEnter.TabIndex = 1;
             this.btnEnter.Text = "Вход";
             this.btnEnter.UseVisualStyleBackColor = false;
@@ -97,22 +97,18 @@
             // 
             // txtBoxLogin
             // 
-            this.txtBoxLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBoxLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(224)))), ((int)(((byte)(254)))));
             this.txtBoxLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxLogin.Location = new System.Drawing.Point(442, 159);
             this.txtBoxLogin.Multiline = true;
             this.txtBoxLogin.Name = "txtBoxLogin";
-            this.txtBoxLogin.Size = new System.Drawing.Size(302, 47);
+            this.txtBoxLogin.Size = new System.Drawing.Size(380, 47);
             this.txtBoxLogin.TabIndex = 4;
             this.txtBoxLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxLogin_KeyPress);
             // 
             // textBox2
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Cursor = System.Windows.Forms.Cursors.No;
@@ -122,14 +118,12 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(364, 45);
+            this.textBox2.Size = new System.Drawing.Size(314, 45);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "Введите логин:";
             // 
             // textBox3
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Cursor = System.Windows.Forms.Cursors.No;
@@ -139,20 +133,18 @@
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(349, 51);
+            this.textBox3.Size = new System.Drawing.Size(299, 51);
             this.textBox3.TabIndex = 6;
             this.textBox3.Text = "Введите пароль:";
             // 
             // txtBoxPassword
             // 
-            this.txtBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(221)))));
             this.txtBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxPassword.Location = new System.Drawing.Point(442, 295);
             this.txtBoxPassword.Multiline = true;
             this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.Size = new System.Drawing.Size(302, 48);
+            this.txtBoxPassword.Size = new System.Drawing.Size(380, 48);
             this.txtBoxPassword.TabIndex = 7;
             this.txtBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPassword_KeyPress);
@@ -162,7 +154,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
-            this.ClientSize = new System.Drawing.Size(1405, 539);
+            this.ClientSize = new System.Drawing.Size(985, 539);
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -171,7 +163,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btnLogInAsACustomer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Authorization";
             this.Text = "Authorization";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

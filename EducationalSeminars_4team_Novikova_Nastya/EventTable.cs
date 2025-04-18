@@ -1,8 +1,8 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using static Microsoft.IO.RecyclableMemoryStreamManager;
 
 namespace EducationalSeminars_4team_Novikova_Nastya
 {
@@ -21,6 +21,7 @@ namespace EducationalSeminars_4team_Novikova_Nastya
             SetUpForm();
             Categories();
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
         public void Categories()
         {
@@ -244,8 +245,57 @@ namespace EducationalSeminars_4team_Novikova_Nastya
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Нет данных для экспорта!", "Информация",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "Excel Files|*.xlsx";
+                saveDialog.Title = "Сохранить отчет";
+                saveDialog.FileName = "Отчет_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".xlsx";
 
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (ExcelPackage pck = new ExcelPackage())
+                        {
+                            ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Отчет");
+
+                            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                            {
+                                ws.Cells[1, i + 1].Value = dataGridView1.Columns[i].HeaderText;
+                            }
+
+                            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                            {
+                                if (dataGridView1.Rows[i].IsNewRow)
+                                {
+                                    continue;
+                                }
+                                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                                {
+                                    var cellValue = dataGridView1.Rows[i].Cells[j].Value;
+                                    ws.Cells[i + 2, j + 1].Value = cellValue?.ToString() ?? "";
+                                }
+                            }
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
+                            pck.SaveAs(new System.IO.FileInfo(saveDialog.FileName));
+
+                            MessageBox.Show("Экспорт завершен успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при экспорте: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
